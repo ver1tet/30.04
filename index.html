@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Практична робота: JS</title>
+</head>
+<body>
+
+    <h1>Практичні завдання (JS)</h1>
+    <p>Натисніть кнопку нижче, щоб запустити виконання завдань по черзі.</p>
+    
+    <button id="start-btn">Запустити виконання</button>
+
+    <h2>Результати виконання:</h2>
+    <div id="output" style="white-space: pre-line; font-family: monospace; background: #f0f0f0; padding: 10px; border: 1px solid #ccc; max-width: 600px;">
+        Тут з'являться результати після натискання кнопки...
+    </div>
+
+    <script>
+        const btn = document.getElementById('start-btn');
+        const output = document.getElementById('output');
+
+        btn.addEventListener('click', () => {
+            output.textContent = "";
+
+            // 1
+            const userName = prompt("Введіть ваше ім'я:");
+            alert(`Привіт, ${userName}!`);
+            output.textContent += `1. Ім'я: ${userName}\n`;
+
+            // 2
+            const CURRENT_YEAR = 2026;
+            const birthYear = prompt("Введіть ваш рік народження:");
+            const age = CURRENT_YEAR - Number(birthYear);
+            alert(`Вам ${age} років.`);
+            output.textContent += `2. Вік: ${age} років\n`;
+
+            // 3
+            const side = prompt("Введіть довжину сторони квадрата:");
+            const perimeter = Number(side) * 4;
+            alert(`Периметр квадрата: ${perimeter}`);
+            output.textContent += `3. Периметр квадрата: ${perimeter}\n`;
+
+            // 4
+            const radius = prompt("Введіть радіус кола:");
+            const area = 3.14 * Number(radius) * Number(radius);
+            alert(`Площа кола: ${area}`);
+            output.textContent += `4. Площа кола: ${area}\n`;
+
+            // 5
+            const distance = prompt("Введіть відстань між містами (км):");
+            const hours = prompt("За скільки годин хочете дістатися?");
+            const speed = Number(distance) / Number(hours);
+            alert(`Потрібно рухатися зі швидкістю: ${speed} км/год`);
+            output.textContent += `5. Швидкість: ${speed} км/год\n`;
+
+            // 6
+            const USD_TO_EUR = 0.92;
+            const usd = prompt("Введіть суму в доларах ($):");
+            const eur = Number(usd) * USD_TO_EUR;
+            alert(`Сума в євро: ${eur} €`);
+            output.textContent += `6. Конвертація: ${usd}$ = ${eur}€\n`;
+
+            // 7
+            const flashGb = prompt("Вкажіть обсяг флешки у ГБ:");
+            const totalMb = Number(flashGb) * 1024;
+            const filesCount = Math.floor(totalMb / 820);
+            alert(`Вміститься файлів по 820 МБ: ${filesCount}`);
+            output.textContent += `7. Файлів на флешці: ${filesCount}\n`;
+
+            // 8
+            const wallet = prompt("Введіть суму грошей у гаманці:");
+            const price = prompt("Введіть вартість однієї шоколадки:");
+            const chocolates = Math.floor(Number(wallet) / Number(price));
+            const change = Number(wallet) % Number(price);
+            alert(`Можна купити шоколадок: ${chocolates}. Здача: ${change}`);
+            output.textContent += `8. Шоколадки: ${chocolates} шт., здача: ${change}\n`;
+
+            // 9
+            const number = prompt("Введіть тризначне число:");
+            const lastDigit = number % 10;
+            const middleDigit = Math.floor((number / 10) % 10);
+            const firstDigit = Math.floor(number / 100);
+            const palindrome = lastDigit * 100 + middleDigit * 10 + firstDigit;
+            alert(`Число-перевертень: ${palindrome}`);
+            output.textContent += `9. Перевертень для ${number}: ${palindrome}\n`;
+
+            // 10
+            const intNumber = prompt("Введіть ціле число:");
+            const remainder = Number(intNumber) % 2;
+            const results = ["Число парне", "Число непарне"];
+            alert(results[remainder]);
+            output.textContent += `10. Число ${intNumber}: ${results[remainder]}\n`;
+        });
+    </script>
+
+</body>
+</html>
